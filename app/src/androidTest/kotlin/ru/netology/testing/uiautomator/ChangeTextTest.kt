@@ -118,6 +118,8 @@ class ChangeTextTest {
         device.findObject(By.res(packageName, "userInput")).text = " "
         device.findObject(By.res(packageName, "buttonChange")).click()
 
+        Thread.sleep(10000)
+
         // Ensure the TextView remains unchanged
         val result = device.findObject(By.res(packageName, "textToBeChanged")).text
         assertEquals(result, "Hello UiAutomator!")
@@ -131,6 +133,8 @@ class ChangeTextTest {
         // Set non-empty text
         device.findObject(By.res(packageName, "userInput")).text = textToSet
         device.findObject(By.res(packageName, "buttonActivity")).click()
+
+        Thread.sleep(10000)
 
         // Retrieve the text from the TextView in the new activity
         val result = device.findObject(By.text(textToSet)).text
